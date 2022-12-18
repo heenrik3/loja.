@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap')
+    
+*, *:before, *:after
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+    transition: .2s
+
+html
+    font-size: 62.5%
+
+body
+    box-sizing: border-box
+
+button
+    border: none
+    background-color: transparent
+    font-family: inherit
+    font-size: inherit
+    cursor: pointer
+
+$mine-shaft: #303030
+
+$primary: $mine-shaft
+$secondary: lighten(lightgray, 20%)
+$default-radius: 5px
+$default-border: 2px solid $primary
+$default-box-shadow: 0px 4px 4px rgba($primary, 0.25)
+$gradient1: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0)
+$gradient2: linear-gradient(90deg, rgba(236,101,101,1) 0%, rgba(255,207,123,1) 13%, rgba(194,235,146,1) 27%, rgba(164,207,182,1) 41%, rgba(128,226,255,1) 56%, rgba(120,136,255,1) 72%, rgba(210,30,185,1) 87%, rgba(255,66,76,1) 100%)
+
+
+@mixin default-border()
+    border: $default-border
+
+@mixin default-border-radius()
+    border-radius: $default-radius
+
+@mixin default-box-shadow()
+    box-shadow: $default-box-shadow
+
+@mixin fancy-background1()
+    background: $gradient1
+
+@mixin fancy-background2()
+    background: $gradient2
+
+@keyframes moveGradient
+    50%
+        background-position: 100% 50%
+
+.btn
+    width: 100%
+    color: $secondary
+    font-weight: bold
+    padding: 1rem
+    background-color: $primary
+    border-radius: 4px
+
+.app
+    height: 100vh
+    font-size: 1.6rem
+    font-family: 'Source Sans Pro', sans-serif
+
+    display: flex
+    flex-direction: column
+
+    position: relative
+
+.header
+    padding: 1rem 5rem
+    background-color: $secondary
+    border-bottom: 2px solid $primary 
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    position: relative
+
+.logo
+    color: $primary
+
+    & span
+        color: crimson
+
+.personal
+    display: flex
+    gap: 5rem
+
+.cart
+    height: 4rem
+    width: 4rem
+    border-radius: 50%
+    background-color: lightgray
+    position: relative
+
+    color: $primary
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &__icon
+        font-size: 1.8rem
+
+    &__badge
+        color: $secondary
+
+        height: 2rem
+        width: 2rem
+        border-radius: 50%
+        background-color: crimson
+
+        position: absolute
+        transform: translate(1.5rem, -1.5rem)
+
+        font-size: 1.4rem
+        font-weight: bold
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+.cart--menu
+    width: 30rem
+    margin: 9rem 3rem
+    padding: 2rem
+    top: 0
+    right: 0
+    position: absolute
+
+    @include default-border
+    @include default-border-radius
+    @include default-box-shadow
+    background-color: $secondary
+    z-index: 5
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
+
+    display: flex
+    flex-direction: column
+    // align-items: center
+    gap: 1rem
+
+.cart__item
+    width: 100%
+    padding: 1rem
+    // border-bottom: 1px solid rgba($primary, .2)
+    @include default-border-radius
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 1rem
+
+    &:hover
+        background-color: lighten(lightgray, 13%)
+
+    &__pic
+        height: 4rem
+        // @include default-border
+        overflow: hidden
+        @include default-border-radius
+
+    &__img
+        height: 100%
+        width: 4rem
+        object-fit: cover
+
+    &__detail
+        display: flex
+        flex-direction: column
+        flex: 1
+
+    & button
+        padding: 5px 10px
+        font-size: 1.4rem
+        font-weight: bold
+        color: $secondary
+
+        @include default-border-radius
+
+        background-color: rgba($primary, 1)
+
+.user
+    &__pic
+        overflow: hidden
+
+    &__img
+        height: 4rem
+        width: 4rem
+        border-radius: 50%
+        object-fit: center
+
+.products
+    background-color: lightgray
+
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    &__list
+        margin: 2rem
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        gap: 2rem        
+
+.product
+    padding: 2rem
+    @include default-border
+    @include default-border-radius
+    background: $secondary
+    position: relative
+
+    display: flex
+    flex-direction: column
+    gap: 2rem
+    justify-content: space-between
+
+    &:hover
+        transform: translateY(-.3rem) scale(102%)
+        @include default-box-shadow
+
+    &__pic
+        height: 280px
+        @include default-border
+        @include default-border-radius
+        overflow: hidden
+
+    &__img
+        height: 100%
+        width: 100%
+        object-fit: cover
+
+    &__details
+        width: 100%
+        background-color: $secondary
+
+        display: flex
+        flex-direction: column
+        gap: .5px
+
+    &__tag
+        border-width: 5px
+        padding: 1rem 2rem
+        @include default-border-radius
+        @include default-box-shadow
+        @include fancy-background1
+        background-size: 200% 200%
+        position: absolute
+        color: white
+        font-weight: bold
+        font-size: 1.8rem
+        transform: rotate(-25deg) translateX(-1rem)
+        animation: moveGradient 4s alternate infinite
+
+        &::after
+            height: 70%
+            width: 90%
+            border-radius: 4px
+            position: absolute
+            content: ""
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            background: rgba($secondary, .2)
+            z-index: -1
+        
+
+    &__discount
+        color: $secondary
+        font-size: 1.4rem
+        padding: 2px 5px
+        background-color: $primary
+
+    &__price
+        font-size: 2rem
+        font-weight: bold
+
+    &__actions
+        display: flex
+        flex-direction: row-reverse
+
+.modal
+    height: 100vh
+    width: 100%
+
+    display: flex
+    align-items: center
+    justify-content: center
+    position: fixed
+    z-index: 5
+
+    &__bg
+        height: 100%
+        width: 100%
+        background-color: rgba($primary, .7)
+
+    &__content
+        padding: 3rem
+        @include default-border
+        @include default-border-radius
+        background-color: $secondary
+
+        position: absolute
+
+        display: flex
+        flex-direction: column
+        gap: 1rem
+    
+    &__header
+        display: flex
+        justify-content: space-between
+        
+        & i
+            font-size: 3rem
+
+.quantity
+    display: flex
+    flex-direction: column
+    gap: 2rem
+
+    &__input
+        display: grid
+
+        grid-template-columns: auto 2fr auto
+        gap: 1rem
+
+        & .btn
+            height: 3rem
+            width: 3rem
+
+            display: flex
+            align-items: center
+            justify-content: center
+    
+    &__display
+        @include default-border-radius
+        background-color: darken($secondary, 10%)
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+@keyframes fade-in
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
