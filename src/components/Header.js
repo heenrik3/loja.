@@ -19,7 +19,7 @@ function Header(props) {
 
       <div className="personal">
         <button className="cart" onClick={toggleCart}>
-          <i className="fas fa-shopping-bag"></i>
+          <i className="cart__icon fas fa-shopping-bag"></i>
           <span className="cart__badge">{cart}</span>
         </button>
 

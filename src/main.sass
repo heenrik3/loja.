@@ -102,7 +102,7 @@ button
     width: 100%
     padding: 1rem 5rem
     background-color: $secondary
-    border-bottom: 2px solid $primary 
+    border-bottom: 2px solid $primary
 
     display: flex
     align-items: center
@@ -138,7 +138,7 @@ button
     height: 4rem
     width: 4rem
     border-radius: 50%
-    background-color: lightgray
+    @include default-border
     position: relative
 
     color: $primary
@@ -168,71 +168,67 @@ button
         align-items: center
         justify-content: center
 
-.cart--menu
-    width: 30rem
-    margin: 9rem 3rem
-    padding: 2rem
-    top: 0
-    right: 0
-    position: absolute
+    &--menu
+        width: 30rem
+        margin: 9rem 3rem
+        padding: 2rem
+        top: 0
+        right: 0
+        position: absolute
 
-    @include default-border
-    @include default-border-radius
-    @include default-box-shadow
-    background-color: $secondary
-    z-index: 5
-    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
-
-    display: flex
-    flex-direction: column
-    gap: 1rem
-
-    // @include respond(tab-land)
-        // grid-template-columns: repeat(3, 1fr)
-    // @include respond(tab-port)
-        // grid-template-columns: repeat(2, 1fr)
-    @include respond(phone)
-        width: 100%
-        margin: 8rem 0 0 0
-
-.cart__item
-    width: 100%
-    padding: 1rem
-    @include default-border-radius
-    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
-
-    display: flex
-    align-items: center
-    justify-content: space-between
-    gap: 1rem
-
-    &:hover
-        background-color: lighten(lightgray, 13%)
-
-    &__pic
-        height: 4rem
-        overflow: hidden
+        @include default-border
         @include default-border-radius
+        @include default-box-shadow
+        background-color: $secondary
+        z-index: 5
+        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
 
-    &__img
-        height: 100%
-        width: 4rem
-        object-fit: cover
-
-    &__detail
         display: flex
         flex-direction: column
-        flex: 1
+        gap: 1rem
 
-    & button
-        padding: 5px 10px
-        font-size: 1.4rem
-        font-weight: bold
-        color: $secondary
+        @include respond(phone)
+            width: 100%
+            margin: 8rem 0 0 0
 
+    &__item
+        width: 100%
+        padding: 1rem
         @include default-border-radius
+        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
 
-        background-color: rgba($primary, 1)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 1rem
+
+        &:hover
+            background-color: lighten(lightgray, 13%)
+
+        &__pic
+            height: 4rem
+            overflow: hidden
+            @include default-border-radius
+
+        &__img
+            height: 100%
+            width: 4rem
+            object-fit: cover
+
+        &__detail
+            display: flex
+            flex-direction: column
+            flex: 1
+
+        & button
+            padding: 5px 10px
+            font-size: 1.4rem
+            font-weight: bold
+            color: $secondary
+
+            @include default-border-radius
+
+            background-color: rgba($primary, 1)
 
 .user
     &__pic
@@ -245,7 +241,7 @@ button
         object-fit: center
 
 .products
-    background-color: lightgray
+    background-color: lighten(lightgray, 10%)
 
     display: flex
     flex-direction: column
@@ -308,8 +304,7 @@ button
     &__img
         height: 100%
         width: 100%
-        object-fit: cover
-        
+        object-fit: cover 
 
     &__details
         width: 100%
@@ -320,7 +315,6 @@ button
         gap: .5px
 
     &__tag
-        // border-width: 5px
         padding: 1rem 2rem
         @include default-border-radius
         @include default-box-shadow
@@ -333,10 +327,6 @@ button
         transform: rotate(-20deg) translateX(-1rem)
         animation: moveGradient 4s alternate infinite
         
-        @include respond(tab-land)
-            // padding: 1.5rem
-        @include respond(tab-port)
-            // padding: 1.2rem
         @include respond(phone)
             transform: rotate(-20deg) translateX(-.5rem)
             padding: .5rem

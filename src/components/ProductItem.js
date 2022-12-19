@@ -11,7 +11,7 @@ function ProductItem(props) {
       <div className="product__details">
         <span className="product__title">{product.title}</span>
         <span className="product__price">
-          R$ {product.price.toFixed(2)}
+          R$ {product.price.toFixed(2).toString().replace('.', ',')}
           {'        '}
           {product.discount ? (
             <label className="product__discount">{product.discount} OFF</label>
